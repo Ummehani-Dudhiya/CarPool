@@ -25,3 +25,4 @@ C:\Users\intern050\Documents\GitHub\CarPool\Backend\obj\Debug\net6.0\refint\Back
 C:\Users\intern050\Documents\GitHub\CarPool\Backend\obj\Debug\net6.0\Backend.pdb
 C:\Users\intern050\Documents\GitHub\CarPool\Backend\obj\Debug\net6.0\Backend.genruntimeconfig.cache
 C:\Users\intern050\Documents\GitHub\CarPool\Backend\obj\Debug\net6.0\ref\Backend.dll
+C:\Users\intern050\Documents\GitHub\CarPool\Backend\bin\Debug\net6.0\Npgsql.dll

@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Backend.Models;
+using Npgsql;
 
 namespace Backend.Repositories
 {
-    public class UserAuthRepository
+    public class UserAuthRepository:CommanRepository
     {  
          public void Register(t_User data)
         {
@@ -18,10 +20,10 @@ namespace Backend.Repositories
             cm.Parameters.AddWithValue("@city", data.City);
             cm.Parameters.AddWithValue("@contact", data.Contact);
             cm.Parameters.AddWithValue("@image", data.Image);
-            cm.Parameters.AddWithValue("@istraveler", data.IsTraveler);
-            conn.Open();
+            cm.Parameters.AddWithValue("@istraveler", data.isTraveler);
+            cn.Open();
             cm.ExecuteNonQuery();
-            conn.Close();
+            cn.Close();
         }
 
         public bool Login(vm_Login data)
@@ -29,13 +31,13 @@ namespace Backend.Repositories
             NpgsqlCommand cm = new NpgsqlCommand("select c_email,c_password from t_user where c_email=@email and c_password=@password", cn);
             cm.Parameters.AddWithValue("@email", data.Email);
             cm.Parameters.AddWithValue("@password", data.Password);
-            conn.Open();
+            cn.Open();
             NpgsqlDataReader datar = cm.ExecuteReader();
             if (datar.Read())
             {
                 return true;
             }
-            conn.Close();
+            cn.Close();
             return false;
         }
     }
