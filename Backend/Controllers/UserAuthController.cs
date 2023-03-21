@@ -14,6 +14,7 @@ namespace Backend.Controllers
     {
         UserAuthRepository uah = new UserAuthRepository();
         [HttpPost]
+        [Route("Register")]
         public ActionResult Register(t_User data)
         {
             uah.Register(data);
@@ -21,11 +22,12 @@ namespace Backend.Controllers
         }
 
         [HttpPost]
+        [Route("Login")]
         public ActionResult Login(vm_Login data)
         {
             if(uah.Login(data))
             {
-                return RedirectToAction("Index", "Car");
+                return RedirectToAction("Register");
             }
             return RedirectToAction("Login", "UserAuth");
         }
