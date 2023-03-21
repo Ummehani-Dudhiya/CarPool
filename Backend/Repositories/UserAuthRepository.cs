@@ -44,51 +44,54 @@ namespace Backend.Repositories
             return false;
         }
 
-        public t_User GetProfile()
+        public t_User GetProfile(int id)
         {
-            NpgsqlCommand cmd = new NpgsqlCommand("select c_userid,c_name,c_email,c_gender,c_address,c_city,c_contact,c_istraveler from t_user", cn);
+            NpgsqlCommand cmd = new NpgsqlCommand("select c_userid,c_name,c_email,c_password,c_gender,c_address,c_city,c_contact,c_image,c_istraveler from t_user", cn);
             cn.Open();
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
             DataSet ds = new DataSet();
-            da.Fill(ds, "t_user");
-            t_User userList = (from DataRow dr in ds.Tables["t_user"].Rows
+            da.Fill(ds, "t");
+            t_User userList = (from DataRow dr in ds.Tables["t"].Rows
+                               where int.Parse(dr["c_userid"].ToString()) == id
                                select new t_User()
                                {
                                    UserId = Convert.ToInt32(dr["c_userid"]),
                                    Name = dr["c_name"].ToString(),
                                    Email = dr["c_email"].ToString(),
+                                   Password = dr["c_password"].ToString(),
                                    Gender = dr["c_gender"].ToString(),
                                    Address = dr["c_address"].ToString(),
                                    City = dr["c_city"].ToString(),
                                    Contact = dr["c_contact"].ToString(),
-                                   isTraveler = Convert.ToBoolean(dr["c_istraveler"].ToString())
+                                   Image = dr["c_image"].ToString(),
+                                   isTraveler = Convert.ToBoolean(dr["c_istraveler"])
                                }).ToList().FirstOrDefault();
+            cn.Close();
             return userList;
         }
 
-        public int ChangeProfile(t_User data)
+        public void ChangeProfile(t_User data, int id)
         {
-            NpgsqlCommand cm = new NpgsqlCommand(@"update t_user set c_name=@c_name,c_gender=@c_gender,c_address=@c_address,c_city=@c_city,c_contact=@c_contact,c_istraveler=@c_istraveler where c_userid=@c_userid", cn);
-            cm.Parameters.AddWithValue("@c_name", data.Name);
-            cm.Parameters.AddWithValue("@c_gender", data.Gender);
-            cm.Parameters.AddWithValue("@c_address", data.Address);
-            cm.Parameters.AddWithValue("@c_city", data.City);
-            cm.Parameters.AddWithValue("@c_contact", data.Contact);
-            cm.Parameters.AddWithValue("@c_istraveler", data.isTraveler);
+            NpgsqlCommand cm = new NpgsqlCommand(@"update t_user set c_name=@nam,c_gender=@gen,c_address=@adr,c_city=@ct,c_contact=@cn where c_userid=@id", cn);
+            cm.Parameters.AddWithValue("@id", id);
+            cm.Parameters.AddWithValue("@nam", data.Name);
+            cm.Parameters.AddWithValue("@gen", data.Gender);
+            cm.Parameters.AddWithValue("@adr", data.Address);
+            cm.Parameters.AddWithValue("@ct", data.City);
+            cm.Parameters.AddWithValue("@cn", data.Contact);
             cn.Open();
-            int ans = cm.ExecuteNonQuery();
+            cm.ExecuteNonQuery();
             cn.Close();
-            return ans;
         }
 
-        public int ChangePassword(ChangePassword data)
+        public int ChangePassword(ChangePassword data, int id)
         {
             if (data.NewPassword == data.ConfirmPassword)
             {
-                NpgsqlCommand cm = new NpgsqlCommand(@"update t_user set c_password=@newpassword 
-                                                        where c_userid=@c_userid and c_password=@oldpassword", cn);
-                cm.Parameters.AddWithValue("@newpassword", data.NewPassword);
-                cm.Parameters.AddWithValue("@oldpassword", data.OldPassword);
+                NpgsqlCommand cm = new NpgsqlCommand(@"update t_user set c_password=@newpwd where c_userid=@id and c_password=@oldpwd", cn);
+                cm.Parameters.AddWithValue("@id", id);
+                cm.Parameters.AddWithValue("@newpwd", data.NewPassword);
+                cm.Parameters.AddWithValue("@oldpwd", data.OldPassword);
                 cn.Open();
                 int ans = cm.ExecuteNonQuery();
                 cn.Close();

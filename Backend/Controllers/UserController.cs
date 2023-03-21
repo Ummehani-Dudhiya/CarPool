@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Backend.Models;
+using Backend.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
@@ -10,38 +12,25 @@ namespace Backend.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        //  public ActionResult UserProfile()
-        // {
-        //     if (Session["Username"] == null)
-        //     {
-        //         return RedirectToAction("Login", "UserAuth");
-        //     }
-        //     return View(uah.GetProfile());
-        // }
-
-        [HttpPost]
-        public ActionResult UserProfile(t_User data)
-        {            
-            int result = uah.ChangeProfile(data);
-            ViewBag.result = result;
-            return View();
+        UserAuthRepository uah = new UserAuthRepository();
+        [HttpGet("{id}")]
+        public t_User Profile(int id)
+        {
+            return uah.GetProfile(id);
         }
 
-        // public ActionResult ChangePassword()
-        // {
-        //     if (Session["Username"] == null)
-        //     {
-        //         return RedirectToAction("Login", "UserAuth");
-        //     }
-        //     return View();
-        // }
-
-        [HttpPost]
-        public ActionResult ChangePassword(ChangePassword data)
+        [HttpPost("{id}")]
+        public ActionResult ChangeProfile(t_User u,int id)
         {
-            int result = uah.ChangePassword(data);
-            ViewBag.result = result;
-            return View();
+            uah.ChangeProfile(u,id);
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult ChangePassword(ChangePassword cp, int id)
+        {
+            int result = uah.ChangePassword(cp, id);
+            return Ok();
         }
     }
 }
