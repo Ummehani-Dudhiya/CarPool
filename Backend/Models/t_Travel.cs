@@ -8,5 +8,6 @@ namespace Backend.Models
         public int ToCityId { get; set; }
         public int NoOfSeats { get; set; }
         public DateTime TravelDate { get; set; }
+        public bool IsActive { get; set; }
     }
 }
