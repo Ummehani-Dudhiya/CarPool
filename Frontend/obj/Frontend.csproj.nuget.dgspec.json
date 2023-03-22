@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\intern050\\Documents\\GitHub\\CarPool\\Frontend\\Frontend.csproj": {}
+    "C:\\Users\\intern053\\Documents\\GitHub\\CarPool\\Frontend\\Frontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\intern050\\Documents\\GitHub\\CarPool\\Frontend\\Frontend.csproj": {
+    "C:\\Users\\intern053\\Documents\\GitHub\\CarPool\\Frontend\\Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\intern050\\Documents\\GitHub\\CarPool\\Frontend\\Frontend.csproj",
+        "projectUniqueName": "C:\\Users\\intern053\\Documents\\GitHub\\CarPool\\Frontend\\Frontend.csproj",
         "projectName": "Frontend",
-        "projectPath": "C:\\Users\\intern050\\Documents\\GitHub\\CarPool\\Frontend\\Frontend.csproj",
-        "packagesPath": "C:\\Users\\intern050\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\intern050\\Documents\\GitHub\\CarPool\\Frontend\\obj\\",
+        "projectPath": "C:\\Users\\intern053\\Documents\\GitHub\\CarPool\\Frontend\\Frontend.csproj",
+        "packagesPath": "C:\\Users\\intern053\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\intern053\\Documents\\GitHub\\CarPool\\Frontend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\intern050\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\intern053\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
