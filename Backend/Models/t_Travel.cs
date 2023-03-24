@@ -8,6 +8,10 @@ namespace Backend.Models
         public int ToCityId { get; set; }
         public int NoOfSeats { get; set; }
         public DateTime TravelDate { get; set; }
+<<<<<<< Updated upstream
         public bool IsActive { get; set; }
+=======
+         public Boolean IsActive { get; set; } 
+>>>>>>> Stashed changes
     }
 }
