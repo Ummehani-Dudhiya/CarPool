@@ -87,68 +87,86 @@
 											</ul> *@
 										@* </div>
 									</div> *@
-									<div class="col-md-6 col-sm-6">
+									<div class="col-md-12 col-sm-6">
 										<!--Register Tabs Form Start-->
 										
-											<form class="account-frm" method="POST">
-										<div class="col-md-6 col-sm-6">
-											<div class="account-field">
-												<label>First Name</label>
-												<span class="far fa-user"></span>
-												<input type="text" name="name" placeholder="Enter Name" id="txtname">
+										<form class="account-frm" method="POST">
+										<div class="row">
+											<div class="col-md-6 col-sm-6">
+												<div class="account-field">
+													<label>Name :</label>
+													<span class="far fa-user"></span>
+													<input type="text" name="name" placeholder="Enter Name" id="txtname">
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-6">
+												<div class="account-field">
+													<label>Email :</label>
+													<span class="far fa-envelope"></span>
+													<input type="email" name="email" placeholder="Enter Email" id="txtemail">
+												</div>
 											</div>
 										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="account-field">
-												<label>Email</label>
-												<span class="far fa-envelope"></span>
-												<input type="email" name="email" placeholder="Enter Email" id="txtemail">
+										<div class="row">
+											<div class="col-md-6 col-sm-6">
+												<div class="account-field">
+													<label>Contact :</label>
+													<span class="icon-phone icomoon"></span>
+													<input type="tel" name="contact" placeholder="Enter Contact Number" id="txtphone">
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-6">
+												<div class="account-field">
+													<label>Gender :</label>
+													<input type="radio" name="rb" value="Male" id="male"><sapn for="male">Male</sapn>&nbsp;&nbsp;&nbsp;
+													<input type="radio" name="rb" value="Female" id="female"><sapn for="female">Female</sapn>
+												</div>
 											</div>
 										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="account-field">
-												<label>Phone</label>
-												<span class="icon-phone icomoon"></span>
-												<input type="tel" name="phone_num" placeholder="Enter Phone Number">
+										<div class="row">
+											<div class="col-md-6 col-sm-6">
+												<div class="account-field">
+													<label>Address :</label>
+													<span class=""></span>
+													<textarea id="txtadr" name="adr" rows="3" class="form-control" placeholder="Enter your address"></textarea>
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-6">
+												<div class="account-field">
+													<label>City :</label>
+													<span class="fas fa-lock"></span>
+													<input type="text" name="city" placeholder="Enter your city" id="txtcity">
+												</div>
+											</div>
+										</div>	
+										<div class="row">
+											<div class="col-md-6 col-sm-6">
+													<div class="account-field">
+														<label>Password :</label>
+														<span class="fas fa-lock"></span>
+														<input type="password" name="new_pass" placeholder="Password" id="txtpwd">
+													</div>
+												</div>
+											<div class="col-md-6 col-sm-6">
+												<div class="account-field">
+													<label>Confirm Password :</label>
+													<span class="fas fa-lock"></span>
+													<input type="password" name="confirm_pass" placeholder="Password" id="txtcpwd">
+												</div>
 											</div>
 										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="account-field">
-												<label>Email</label>
-												<span class="far fa-envelope"></span>
-												<input type="email" name="email_id" placeholder="Enter Email id">
+										<div class="row">
+											@* <div class="col-md-6 col-sm-6">
+												<div class="account-field">
+													<label>Profile Image</label> *@
+													@* <button class="file-btn"><i class="fas fa-download"></i> Upload Photo</button> *@
+													@* <input type="file" class="file-btn" id="txtfu" accept=".jpg,.gif,.png">
+													<span class="limit">Maximum file size : 6MB </span>
+												</div>
+											</div> *@
+											<div class="col-md-6 col-sm-6">
+												<button type="submit" class="save-btn">Save <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
 											</div>
-										</div>
-										<div class="col-md-4 col-sm-4">
-											<div class="account-field">
-												<label>Old Password</label>
-												<span class="fas fa-lock"></span>
-												<input type="password" name="old_pass" placeholder="Password">
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-4">
-											<div class="account-field">
-												<label>New Password</label>
-												<span class="fas fa-lock"></span>
-												<input type="password" name="new_pass" placeholder="Password">
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-4">
-											<div class="account-field">
-												<label>Confirm Password</label>
-												<span class="fas fa-lock"></span>
-												<input type="password" name="confirm_pass" placeholder="Password">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="account-field">
-												<label>Profile Image</label>
-												<button class="file-btn"><i class="fas fa-download"></i> Upload Photo</button>
-												<span class="limit">Maximum file size : 6MB </span>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<button type="submit" class="save-btn">Save <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
 										</div>
 										</form>
 										<!--Register Tabs Form End-->
